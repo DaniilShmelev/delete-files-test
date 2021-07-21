@@ -1,0 +1,43 @@
+jobs:
+
+- job:
+  displayName: 'Remove exact files'
+  pool: Windows
+  steps:
+  - template: './removeExactFiles.yaml'
+
+- job:
+  displayName: 'Remove files with pattern'
+  pool: Windows
+  steps:
+  - template: './removeFilesWithPattern.yaml'
+
+- job:
+  displayName: 'Remove files with dot'
+  pool: Windows
+  steps:
+  - template: './removeFilesWithDot.yaml'
+
+- job:
+  displayName: 'Remove exact files UNC'
+  pool: Windows
+  steps:
+  - template: './removeExactFiles.yaml'
+    parameters:
+      sourceDir: \\N125\unc share
+
+- job:
+  displayName: 'Remove files with pattern UNC'
+  pool: Windows
+  steps:
+  - template: './removeFilesWithPattern.yaml'
+    parameters:
+      sourceDir: \\N125\unc share
+
+- job:
+  displayName: 'Remove files with dot UNC'
+  pool: Windows
+  steps:
+  - template: './removeFilesWithDot.yaml'
+    parameters:
+      sourceDir: \\N125\unc share

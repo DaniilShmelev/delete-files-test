@@ -1,0 +1,17 @@
+parameters:
+- name: sourceDir
+  default: '$(Agent.BuildDirectory)'
+
+steps:
+- bash: mkdir -p ${{ parameters.sourceDir }}/someDir
+- bash: echo "some content 0" > ${{ parameters.sourceDir }}/someFile.txt
+- bash: echo "some content 1" > ${{ parameters.sourceDir }}/someDir/someFile1.txt
+- bash: echo "some content 2" > ${{ parameters.sourceDir }}/someDir/someFile2.txt
+- task: DeleteFilesM@1
+  inputs:
+    SourceFolder: 
+    Contents: |
+      ${{ parameters.sourceDir }}/someFile.txt
+      ${{ parameters.sourceDir }}/someDir/someFile1.txt
+      ${{ parameters.sourceDir }}/someDir/someFile2.txt
+- bash: ls -lR ${{ parameters.sourceDir }}
