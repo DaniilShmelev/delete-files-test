@@ -24,7 +24,7 @@ jobs:
   steps:
   - template: './removeExactFiles.yaml'
     parameters:
-      sourceDir: \\N125\unc share
+      sourceDir: '\\\\N125\\unc share'
 
 - job:
   displayName: 'Remove files with pattern UNC'
@@ -32,7 +32,7 @@ jobs:
   steps:
   - template: './removeFilesWithPattern.yaml'
     parameters:
-      sourceDir: \\N125\unc share
+      sourceDir: '\\\\N125\\unc share'
 
 - job:
   displayName: 'Remove files with dot UNC'
@@ -40,4 +40,4 @@ jobs:
   steps:
   - template: './removeFilesWithDot.yaml'
     parameters:
-      sourceDir: \\N125\unc share
+      sourceDir: '\\\\N125\\unc share'
